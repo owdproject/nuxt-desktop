@@ -63,6 +63,7 @@ allowBuilds:
   '@swc/core': true
   unrs-resolver: true
   core-js: true
+  "audiobuffer-to-wav@https://codeload.github.com/torch2424/audiobuffer-to-wav/tar.gz/8878a20c5cc7e457b113dabfb1781ad4178f9c62": true
 blockExoticSubdeps: false
 minimumReleaseAge: 0
 `
