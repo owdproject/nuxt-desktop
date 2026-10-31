@@ -31,6 +31,9 @@ jobs:
       - name: Check desktop dependency architecture
         run: node scripts/check-no-legacy-desktop.mjs
 
+      - name: Check documentation against code (no doc/code drift)
+        run: node scripts/check-doc-symbols.mjs --all
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 

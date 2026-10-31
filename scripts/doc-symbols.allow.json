@@ -1,0 +1,9 @@
+{
+  "$comment": "Simboli legittimamente documentati in questo repo ma definiti ALTROVE. Ogni voce richiede una motivazione: l'allowlist e' una decisione, non un tasto per zittire il guard. Se il simbolo non e' piu' documentato, la voce va rimossa.",
+  "symbols": {
+    "useAtprotoAuth": "definito in github.com/dxlliv/nuxt-atproto (pacchetto esterno), citato qui per riferimento nell'API del modulo",
+    "signInWithHandle": "metodo di useAtprotoAuth, quindi vive in github.com/dxlliv/nuxt-atproto",
+    "useAgent": "API legacy deprecata di nuxt-atproto, definita in github.com/dxlliv/nuxt-atproto",
+    "GlobalStyle": "export di @react95/core (dipendenza esterna), citato nella doc del kit react95"
+  }
+}

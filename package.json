@@ -32,6 +32,7 @@
     "ecosystem:status": "node scripts/sync-ecosystem.mjs status",
     "release:core:dry-run": "changelogen --noAuthors --dry-run",
     "check:architecture": "node scripts/check-no-legacy-desktop.mjs",
+    "check:docs": "node scripts/check-doc-symbols.mjs --all",
     "check:playground": "node scripts/check-playground-isolation.mjs",
     "playground:sync": "node scripts/playground-sync.mjs"
   },
