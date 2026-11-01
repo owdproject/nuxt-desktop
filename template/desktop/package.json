@@ -10,11 +10,11 @@
     "preview": "nuxt preview"
   },
   "dependencies": {
-    "@owdproject/core": "^4.0.0-alpha.3",
+    "@owdproject/core": "^4.0.0-alpha.4",
     "@owdproject/nuxt": "^4.0.0-alpha.3",
-    "@owdproject/nuxt-app-about": "^4.0.0-alpha.3",
+    "@owdproject/nuxt-app-about": "^4.0.0-alpha.4",
     "@owdproject/nuxt-module-fs": "^4.0.0-alpha.3",
-    "@owdproject/nuxt-theme-ui": "^4.0.0-alpha.3",
+    "@owdproject/nuxt-theme-ui": "^4.0.0-alpha.4",
     "h3": "^2.0.8",
     "primevue": "^4.5.5",
     "vue-i18n": "^11.4.17"
