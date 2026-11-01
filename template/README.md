@@ -27,15 +27,14 @@ Bootstrap a new project:
 ```bash
 npm create owd@latest
 # or: desktop init my-desktop
-# or: npx nuxi@latest module add @owdproject/core
 ```
 
 Setup runs `pnpm install` and opens the **control panel** (`pnpm desktop`) when your terminal is interactive.
 
 ```bash
-cd owd-client
+cd <your-project>
 
-pnpm desktop        # control panel: [m] menu, [s] start, [x] stop, [R] reboot, [w] save
+pnpm desktop        # control panel: [d] start, [x] stop, [s] apply selections, [f] file service
 pnpm run dev        # Nuxt dev server only
 
 pnpm run generate   # production build
@@ -45,7 +44,7 @@ Default install mode is **User (npm)** — configured in `.desktop/settings.json
 
 ## Extend your desktop
 
-Thanks to Tailwind and PrimeVue, you can create custom themes from scratch and ensure a consistent look across all apps. Each theme defines its own style, making your desktop both cohesive and uniquely yours.
+The default Paper theme uses PrimeVue. Other themes may provide different UI kits; choose apps whose declared requirements match the active theme and modules. Custom themes own their visual language and composition, with no mandatory shared token system.
 
 [Applications](https://github.com/topics/owd-apps) · [Modules](https://github.com/topics/owd-modules) · [Themes](https://github.com/topics/owd-themes)
 
@@ -53,7 +52,7 @@ Thanks to Tailwind and PrimeVue, you can create custom themes from scratch and e
 
 Discover apps by searching the [owd-apps](https://github.com/topics/owd-apps) tag on GitHub.
 
-For example, to add the To-do app from the control panel: press `s` to start the dev server (`x` to stop), select packages, then press `w` to save, or:
+For example, to add the To-do app from the control panel: select it in Apps, then press `s` to apply the change. Press `d` to start the dev server (`x` to stop), or use:
 
 ```bash
 pnpm desktop add @owdproject/nuxt-app-todo
@@ -71,8 +70,7 @@ pnpm desktop add @owdproject/nuxt-module-pinia-persistence
 
 ### 🖥️ Install a theme
 
-Themes are full desktop environments that style all UI components independently, using [PrimeVue](https://primevue.org/).  
-Each theme provides a unique look and feel while maintaining consistent functionality across applications.
+Themes provide the desktop shell and its visual design. A theme documents the UI kits and integrations it supplies; compatibility with an app depends on those requirements, not just on both packages targeting Nuxt.
 
 Discover themes by searching the [owd-themes](https://github.com/topics/owd-themes) tag on GitHub.
 

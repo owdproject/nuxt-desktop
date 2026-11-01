@@ -1,7 +1,7 @@
 {
-  "name": "owd-client",
+  "name": "owd-nuxt-desktop",
   "private": true,
-  "description": "Open Web Desktop client",
+  "description": "Open Web Desktop Nuxt workspace",
   "homepage": "https://github.com/owdproject/nuxt-desktop#readme",
   "bugs": {
     "url": "https://github.com/owdproject/nuxt-desktop/issues"

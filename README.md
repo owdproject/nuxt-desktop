@@ -12,6 +12,17 @@ Open Web Desktop (OWD) is an open-source framework built on top of Nuxt.js, used
 
 [Demo](https://atproto-os.pages.dev/) · [Documentation](https://owdproject.github.io/docs/) · [Support](https://github.com/sponsors/owdproject)
 
+## Scope and security model
+
+Open Web Desktop is a **shell, not a security boundary**. It composes the code you ship: apps, modules, kits, and themes are installed **at build time** and bundled with your desktop. Nothing executable is fetched or evaluated at runtime in the page's origin.
+
+- **Installation is developer-side and on-disk.** `pnpm desktop add` places a package in `apps/` (or `themes/`) and registers it in `desktop.config.ts`. The browser receives a pre-generated bundle — auditable and reproducible, with no on-the-fly code.
+- **Extensions are bundled code, not sandboxed code.** Any JavaScript in your desktop runs with the full privileges of the page. Never run code you do not trust inside an OWD build.
+- **Untrusted code is your responsibility.** If you need it, isolate it yourself — `<iframe sandbox>` or a Worker — and expose only declared capabilities. OWD does not offer OS-grade permissions, and does not pretend to.
+- **Not a daily-driver OS.** OWD is for demos, prototypes, theme compatibility, and desktop experiences that stay maintainable. It connects to APIs; it does not isolate your machine.
+
+Open in two ways: open to every framework, and open about what it does not do.
+
 ## Features
 
 - Desktop extendable through apps, modules, and themes
@@ -57,7 +68,7 @@ Or start the control panel (TUI) to manage packages and logs:
 ```bash
 pnpm run desktop
 ```
-*(Press `d` in the control panel to toggle the dev server, `x` to stop).*
+*(Press `d` in the control panel to start the dev server, `x` to stop).*
 
 
 ## Ecosystem & Extensibility
@@ -87,6 +98,8 @@ The CLI makes it easy to install, import, and configure packages automatically.
 
 > [!NOTE]
 > For security reasons, the Control Panel (CP) only displays packages from a whitelist of approved GitHub usernames like *owdproject* and *atproto-os*. Modules from other users will not appear automatically, although this discovery mechanism is planned to be improved in the future.
+>
+> This is a **curation** measure, not a sandbox: OWD does not isolate the code you install. See [Scope and security model](#scope-and-security-model).
 
 #### Installing an Application
 To add a new application (e.g., a Todo app):
@@ -153,20 +166,17 @@ USAGE
   desktop                 Open the control panel (interactive TUI)
   desktop dev [--playground]  Start dev server (auto-detects module playground)
 
-CONTROL PANEL (TUI)
-  m                       Open command menu (all actions)
-  s                       Start the Nuxt dev server
-  x                       Stop the Nuxt dev server
-  R                       Reboot the Nuxt dev server (stop + start)
-  w                       Save catalog/theme changes to desktop.config.ts
+CONTROL PANEL (Bubble Tea)
+  d / x                   Start / stop the dev server
+  s                       Apply queued package and theme changes
   1 / 2 / 3               Apps / Modules / Themes catalog tabs
-  o / O                   Cycle sort (o) or open sort picker (O)
-  i                       Open in-app docs (when module-docs is installed)
-  g                       Settings (GitHub user, SSH, trusted orgs)
-  r                       Refresh package list from GitHub (detects new modules)
-  b                       Run pnpm run generate
-  q / Esc                 Quit
-  desktop init [dir]      Create a new OWD project (then opens the control panel)
+  ↑ / ↓ / Space           Navigate and select packages
+  f                       Find the optional Nuxt file service
+  c / u                   Manage / update the selected package
+  g / r                   Settings / refresh catalog
+  n                       Create a new app or module
+  q                       Quit
+  desktop init [dir] [--framework nuxt|react]  Create a desktop project
   desktop add <package> [options]
   desktop add <kind> <name> [options]
   desktop validate [path...]  Check Nuxt module + playground layout
