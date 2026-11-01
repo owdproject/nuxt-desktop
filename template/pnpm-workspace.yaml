@@ -3,3 +3,11 @@ packages:
     - 'apps/*'
     - 'packages/*'
     - 'themes/*'
+
+# pnpm 11 fails install when build scripts are not approved. The starter uses
+# these packages, so approve their builds explicitly (no manual `approve-builds`).
+allowBuilds:
+  esbuild: true
+  '@parcel/watcher': true
+  '@swc/core': true
+  unrs-resolver: true
