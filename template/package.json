@@ -31,7 +31,8 @@
     "@owdproject/core": "^4.0.0-alpha.3",
     "@owdproject/nuxt": "^4.0.0-alpha.3",
     "@owdproject/nuxt-app-about": "^4.0.0-alpha.3",
-    "@owdproject/nuxt-theme-paper": "^4.0.0-alpha.3",
+    "@owdproject/nuxt-module-fs": "^4.0.0-alpha.3",
+    "@owdproject/nuxt-theme-ui": "^4.0.0-alpha.3",
     "@swc-node/register": "~1.11.1",
     "@swc/cli": "~0.8.1",
     "@swc/core": "~1.15.32",
@@ -60,7 +61,7 @@
     "vitest": "^4.1.5",
     "vue": "^3.5.33",
     "vue-eslint-parser": "^10.4.0",
-    "vue-i18n": "^11.4.16",
+    "vue-i18n": "^11.4.17",
     "vue-router": "^5.0.6",
     "vue-tsc": "^3.2.7"
   }
