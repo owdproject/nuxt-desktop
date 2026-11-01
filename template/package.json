@@ -18,7 +18,11 @@
   "scripts": {
     "dev": "pnpm --dir desktop dev",
     "generate": "pnpm --dir desktop generate",
-    "desktop": "pnpm exec desktop"
+    "desktop": "pnpm exec desktop",
+    "prepare:stubs": "node scripts/prepare-stubs.mjs",
+    "prepare:modules": "pnpm run prepare:stubs && pnpm -r --filter \"./apps/*\" --if-present run dev:prepare",
+    "prepare:apps": "pnpm -r --filter \"./apps/*\" --if-present run dev:prepare",
+    "prepare:themes": "pnpm -r --filter \"./themes/*\" --if-present run dev:prepare"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.5",

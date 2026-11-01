@@ -40,11 +40,11 @@ pnpm run dev        # Nuxt dev server only
 pnpm run generate   # production build
 ```
 
-Default install mode is **User (npm)** — configured in `.desktop/settings.json`.
+Default install mode is **User (npm)** — configured in `.owd/settings.json`.
 
 ## Extend your desktop
 
-The default Paper theme uses PrimeVue. Other themes may provide different UI kits; choose apps whose declared requirements match the active theme and modules. Custom themes own their visual language and composition, with no mandatory shared token system.
+The default Nuxt UI theme uses PrimeVue. Other themes may provide different UI kits; choose apps whose declared requirements match the active theme and modules. Custom themes own their visual language and composition, with no mandatory shared token system.
 
 [Applications](https://github.com/topics/owd-apps) · [Modules](https://github.com/topics/owd-modules) · [Themes](https://github.com/topics/owd-themes)
 

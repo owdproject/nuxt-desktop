@@ -44,7 +44,13 @@ if (packagesToStub.length > 0) {
 
   // Build filter flags for pnpm
   const filters = packagesToStub.map(p => `--filter "./${p}"`).join(' ')
-  execSync(`pnpm ${filters} exec nuxt-module-build build --stub`, { stdio: 'inherit' })
+  execSync(`pnpm ${filters} exec nuxt-module-build build --stub`, {
+    stdio: 'inherit',
+    // Avoid pnpm's automatic pre-run install check: it would re-enter the
+    // workspace install (and the desktop postinstall) while we are already
+    // inside one, deadlocking the stub build.
+    env: { ...process.env, pnpm_config_verify_deps_before_run: 'false' },
+  })
 
   // Post-stub assets copy
   for (const pkgPath of packagesToStub) {

@@ -17,7 +17,6 @@
   },
   "scripts": {
     "preinstall": "echo 'submodule updates are managed explicitly'",
-    "postinstall": "pnpm run prepare:stubs",
     "desktop": "desktop",
     "dev": "pnpm --filter ./desktop run dev",
     "generate": "pnpm --filter ./desktop run generate",
