@@ -75,7 +75,7 @@ Themes provide the desktop shell and its visual design. A theme documents the UI
 Discover themes by searching the [owd-themes](https://github.com/topics/owd-themes) tag on GitHub.
 
 ```bash
-pnpm desktop add @owdproject/nuxt-theme-gnome
+pnpm desktop add owd-nuxt-theme-gnome
 ```
 
 ## Sponsors

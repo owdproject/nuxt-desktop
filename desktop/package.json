@@ -23,7 +23,7 @@
     "pinia": "^4.1.0",
     "sanitize.css": "^13.0.0",
     "xstate": "^5.33.3",
-    "@owdproject/nuxt-theme-win95": "workspace:*",
+    "owd-nuxt-theme-win95": "workspace:*",
     "@owdproject/nuxt-module-pinia-persistence": "workspace:*",
     "@owdproject/nuxt-module-fs": "workspace:*",
     "@owdproject/nuxt-module-jazz": "workspace:*"

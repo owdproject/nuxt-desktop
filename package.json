@@ -20,7 +20,7 @@
     "desktop": "desktop",
     "dev": "pnpm --filter ./desktop run dev",
     "generate": "pnpm --filter ./desktop run generate",
-    "prepare:stubs": "node scripts/prepare-stubs.mjs",
+    "prepare:stubs": "node template-blueprint/scripts/prepare-stubs.mjs",
     "prepare:modules": "pnpm run prepare:stubs && pnpm -r --filter \"./apps/*\" --if-present run dev:prepare",
     "prepare:apps": "pnpm -r --filter \"./apps/*\" --if-present run dev:prepare",
     "prepare:themes": "pnpm -r --filter \"./themes/*\" --if-present run dev:prepare",

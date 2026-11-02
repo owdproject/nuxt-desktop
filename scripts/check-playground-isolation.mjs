@@ -8,7 +8,7 @@
  * Fails when, in any published (@owdproject) package:
  *   - `files` includes `playground`
  *   - `dependencies`/`peerDependencies`/`optionalDependencies` include an app
- *     (`@owdproject/nuxt-app-*` / `@owdproject/react-app-*`)
+ *     (`@owdproject/<framework>-app-*`)
  *   - a `playground/` exists but its package.json is not private
  */
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs'
@@ -20,6 +20,15 @@ const ignored = new Set(['node_modules', 'dist', '.git', '.nuxt', '.output', '.d
 const APP_RE = /^@owdproject\/(?:nuxt|react|vue|svelte|angular|astro)-app-/
 const failures = []
 let packages = 0
+
+/** Self-check: the app detector must recognize demo apps and reject other packages. */
+function assertGuardContract() {
+  const ok = APP_RE.test('@owdproject/nuxt-app-about') && !APP_RE.test('@owdproject/nuxt-theme-paper')
+  if (ok) return
+  console.error('Guard self-check failed: APP_RE does not recognize demo app packages')
+  process.exitCode = 1
+}
+assertGuardContract()
 
 function scan(dir) {
   for (const entry of readdirSync(dir)) {
@@ -65,7 +74,7 @@ function checkPackage(dir, pkgPath) {
   }
 }
 
-for (const base of ['packages', 'themes', 'apps']) {
+for (const base of ['packages', 'modules', 'themes', 'apps', 'plugins']) {
   const dir = join(root, base)
   if (existsSync(dir)) scan(dir)
 }

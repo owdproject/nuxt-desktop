@@ -35,7 +35,7 @@ Open in two ways: open to every framework, and open about what it does not do.
 ## Repository layout
 
 - **`desktop/`** — dev desktop (workspace apps, modules, themes)
-- **`template/`** — scaffold copied by `npm create owd@latest` / `pnpm desktop init`. <br /><br />**Do not edit "template" by hand**; regenerate with `pnpm desktop template` after changing the starter desktop or publishing `@owdproject/*` packages. Blueprint sources live in `packages/core/template-blueprint/`.
+- **`template/`** — scaffold copied by `npm create owd@latest` / `pnpm desktop init`. <br /><br />**Do not edit "template" by hand**; regenerate with `pnpm desktop template` after changing the starter desktop or publishing `@owdproject/*` packages. Blueprint sources live in `template-blueprint/`.
 
 ## Getting Started
 

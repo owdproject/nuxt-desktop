@@ -54,3 +54,31 @@ jobs:
 
       - name: Test @owdproject/core
         run: pnpm --filter @owdproject/core test
+
+  starter-e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.7.0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Scaffold a project from template/
+        run: |
+          rm -rf /tmp/owd-starter
+          cp -R template /tmp/owd-starter
+
+      - name: Install starter
+        working-directory: /tmp/owd-starter
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Build starter (smoke)
+        working-directory: /tmp/owd-starter
+        run: pnpm run generate

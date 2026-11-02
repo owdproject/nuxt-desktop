@@ -2,9 +2,10 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { execSync } from 'node:child_process'
 
-// todo this should be improved
-
-const roots = ['packages', 'apps', 'themes']
+// Builds `--stub` distributions for every workspace package that uses
+// `@nuxt/module-builder`, so Nuxt can resolve cloned apps/modules/themes
+// before a full build. Runs automatically on `pnpm install` (postinstall).
+const roots = ['packages', 'apps', 'themes', 'plugins']
 const packagesToStub = []
 
 for (const root of roots) {

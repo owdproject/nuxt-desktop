@@ -53,7 +53,7 @@ client/
 ├── themes/                  # Desktop themes (@owdproject/nuxt-theme-*)
 ├── plugins/                 # Optional workspace slot for future Nuxt plugins
 ├── template/                # Generated starter (npm create owd) — do not hand-edit
-├── packages/core/template-blueprint/  # Maintainer source for generated starter
+├── template-blueprint/      # Maintainer source for the generated starter
 ├── package.json
 ├── pnpm-workspace.yaml
 └── scripts/
@@ -102,13 +102,13 @@ Each Nuxt app is an **`@owdproject/nuxt-app-*`** module:
 
 ### `themes/*` — desktop environments
 
-Nuxt modules (e.g. `@owdproject/nuxt-theme-paper`, `@owdproject/nuxt-theme-win95`) that provide layout, chrome, styles, and i18n. They may conditionally load extra modules (e.g. FS explorer integration).
+Nuxt modules (e.g. `@owdproject/nuxt-theme-paper`, `owd-nuxt-theme-win95`) that provide layout, chrome, styles, and i18n. They may conditionally load extra modules (e.g. FS explorer integration).
 
 **`theme-paper`** is the **reference shell** for app/module playgrounds (Start menu, tray, dock). Smoke test: Start lists apps from the playground’s `desktop.config.ts`.
 
 ### `template/`
 
-The CLI generator copies `packages/core/template-blueprint/` and selected desktop/workspace files into `template/` (`packages/cli/bin/lib/generateTemplate.js:248`). Edit the blueprint, then regenerate; do not hand-edit the generated starter. Root agent guidance is copied from the blueprint. App/module scaffolds carry their own role-specific guidance (`packages/cli/tests/scaffold-contracts.test.mjs`).
+The CLI generator copies `template-blueprint/` and selected desktop/workspace files into `template/` (`packages/cli/bin/lib/generateTemplate.js`, `generateTemplate`/`writeGeneratedFiles`). The blueprint now lives in this repo (it was previously under `packages/core/template-blueprint/`); the CLI resolves `<workspaceRoot>/template-blueprint` first and falls back to the legacy core path. Edit the blueprint, then regenerate; do not hand-edit the generated starter. Root agent guidance is copied from the blueprint. App/module scaffolds carry their own role-specific guidance (`packages/cli/tests/scaffold-contracts.test.mjs`).
 
 ---
 
@@ -124,7 +124,7 @@ Full migration checklist: [`docs/agents/OWD_APP_MODULE_PLAYGROUND.md`](docs/agen
 | `@owdproject/nuxt-module-fs` | `packages/owd-module-fs/playground` | `nuxt-theme-paper` + FS demos | |
 | `@owdproject/nuxt-module-pinia-persistence` | `packages/owd-nuxt-module-persistence/playground` | `nuxt-theme-paper` + `nuxt-app-todo` | |
 | `@owdproject/nuxt-theme-paper` | `themes/owd-nuxt-theme-paper/playground` | (self) | Reference theme |
-| `@owdproject/nuxt-theme-win95` | `themes/owd-nuxt-theme-win95/playground` | (self) + `nuxt-app-about` | Retro reference |
+| `owd-nuxt-theme-win95` | `themes/owd-nuxt-theme-win95/playground` | (self) + `nuxt-app-about` | Retro reference |
 | `@owdproject/core` | No Nuxt package playground | — | Headless engine; desktop integration runs through the Nuxt binding |
 
 **Monorepo dev vs publish**
