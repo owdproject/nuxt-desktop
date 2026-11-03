@@ -7,4 +7,4 @@
 	url = ../cli.git
 [submodule "themes/nuxt-theme"]
 	path = themes/nuxt-theme
-	url = https://github.com/owdproject/nuxt-theme.git
+	url = https://github.com/owdproject/nuxt-theme-ui.git
